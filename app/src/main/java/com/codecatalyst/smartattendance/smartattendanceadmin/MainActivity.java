@@ -354,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
             tvDebugInfo.setText("📴 Broadcast stopped.\nLast UUID: " + advertisedUUID);
             tvDebugInfo.setVisibility(android.view.View.VISIBLE);
 
-            if (activeSessionUUID != null) updateAttendanceStatus(activeSessionUUID, LocalDate.now().toString());
+//            if (activeSessionUUID != null) updateAttendanceStatus(activeSessionUUID, LocalDate.now().toString());
         }
     }
 
