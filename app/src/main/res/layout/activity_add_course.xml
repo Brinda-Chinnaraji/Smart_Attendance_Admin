@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F5F7FA" android:padding="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Course"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#111827"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Course card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/etCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Course name (e.g., SSDI)"
+                android:background="@android:drawable/edit_text"
+                android:padding="10dp"/>
+
+            <EditText
+                android:id="@+id/etShortCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Short code (ITCS1234)"
+                android:layout_marginTop="10dp"
+                android:background="@android:drawable/edit_text"
+                android:padding="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <Button
+                    android:id="@+id/btnPickProfessor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pick Professor"
+                    android:backgroundTint="@color/teal_700"
+                    android:textColor="@android:color/white"/>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/btnQuickNewProfessor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="New Professor"
+                    android:backgroundTint="@color/teal_200"
+                    android:textColor="#073B3A"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPickedProfessor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Professor: none"
+                android:textColor="#6B7280"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Schedule card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Initial schedule"
+                android:textStyle="bold"
+                android:textColor="#111827"/>
+
+            <EditText
+                android:id="@+id/etDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Day (e.g., Tuesday)"
+                android:layout_marginTop="8dp"
+                android:background="@android:drawable/edit_text"
+                android:padding="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/etStartTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Start (10.00 AM)"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="10dp"/>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <EditText
+                    android:id="@+id/etEndTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="End (1.15 PM)"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp">
+
+                <Button
+                    android:id="@+id/btnPickSemester"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pick Semester"
+                    android:backgroundTint="@color/teal_200"
+                    android:textColor="#073B3A"/>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:id="@+id/btnPickStudents"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pick Students"
+                    android:backgroundTint="@color/teal_700"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPickedSemester"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Semester: none"
+                android:textColor="#6B7280"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tvPickedStudents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Students: none"
+                android:textColor="#6B7280"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Save -->
+        <Button
+            android:id="@+id/btnSaveCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Course"
+            android:backgroundTint="@color/holo_red_dark"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+</ScrollView>
