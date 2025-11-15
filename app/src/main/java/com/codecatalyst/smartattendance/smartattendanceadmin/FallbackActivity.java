@@ -48,7 +48,8 @@ public class FallbackActivity extends AppCompatActivity {
     private String studentId;
     private ProgressBar progressBar;
     private FirebaseFirestore db;
-
+    private EditText etFirstName;
+    private EditText etLastName;
     private List<String> emailList = new ArrayList<>();
     private List<String> courseList = new ArrayList<>();
     private List<String> scheduleList = new ArrayList<>();
@@ -68,6 +69,8 @@ public class FallbackActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         progressBar = findViewById(R.id.progressBar);
         tvAttendanceData = findViewById(R.id.tvAttendanceData);
+        etFirstName = findViewById(R.id.etFirstName);
+        etLastName = findViewById(R.id.etLastName);
         db = FirebaseFirestore.getInstance();
 
         // Initially disable submit button
@@ -150,7 +153,11 @@ public class FallbackActivity extends AppCompatActivity {
                     if (!querySnapshot.isEmpty()) {
                         DocumentSnapshot doc = querySnapshot.getDocuments().get(0);
                         studentId = doc.getId();
+                        String firstName = doc.getString("FirstName");
+                        String lastName = doc.getString("LastName");
 
+                        etFirstName.setText(firstName);
+                        etLastName.setText(lastName);
 
                         // You can now use this info to fetch scheduled courses for this student
                         fetchScheduledCoursesForStudent(studentId);
