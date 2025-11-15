@@ -25,7 +25,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:backgroundTint="@color/teal_700"
-                app:title="Smart Attendance (Admin)"
                 app:titleCentered="true"
                 app:titleTextColor="@android:color/white" />
         </com.google.android.material.appbar.AppBarLayout>
