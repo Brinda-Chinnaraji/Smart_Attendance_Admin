@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private Spinner spinnerCourses;
     private TextView tvWelcome, tvSemester, tvSchedule, tvDebugInfo;
-    private Button btnStartAttendance, btnStopAttendance, btnManualfallback;
+    private Button btnStartAttendance, btnStopAttendance, btnManualfallback, btnAttendanceHistory;
     private LottieAnimationView animationBluetooth;
 
     private BluetoothAdapter bluetoothAdapter;
@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         btnStartAttendance = findViewById(R.id.btnStartAttendance);
         btnStopAttendance = findViewById(R.id.btnStopAttendance);
         btnManualfallback = findViewById(R.id.btnManualfallback);
+        btnAttendanceHistory = findViewById(R.id.btnAttendanceHistory);
 
         animationBluetooth = findViewById(R.id.animationBluetooth);
 
@@ -115,6 +116,14 @@ public class MainActivity extends AppCompatActivity {
         btnStopAttendance.setOnClickListener(v -> stopAttendanceSession());
         btnManualfallback.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FallbackActivity.class)));
 //        btnPrevious.setOnClickListener(v -> navigateToLogin());
+
+
+        // NEW: Attendance History
+        btnAttendanceHistory.setOnClickListener(v -> {
+            Intent i = new Intent(MainActivity.this, ProfessorAttendanceHistoryActivity.class);
+            i.putExtra("PROFESSOR_ID", professorId);
+            startActivity(i);
+        });
 
         // Handle device back press
         this.getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -354,7 +363,9 @@ public class MainActivity extends AppCompatActivity {
             tvDebugInfo.setText("📴 Broadcast stopped.\nLast UUID: " + advertisedUUID);
             tvDebugInfo.setVisibility(android.view.View.VISIBLE);
 
-//            if (activeSessionUUID != null) updateAttendanceStatus(activeSessionUUID, LocalDate.now().toString());
+           if (activeSessionUUID != null) if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+               updateAttendanceStatus(activeSessionUUID, LocalDate.now().toString());
+           }
         }
     }
 
