@@ -1,167 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9F9"
+    android:background="@drawable/bg"
+    android:padding="24dp"
     tools:context=".FallbackActivity">
 
-    <!-- App Bar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
+    <!-- TITLE -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        android:text="Fallback Attendance"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:backgroundTint="@color/teal_700"
-            app:title="Fallback Attendance"
-            app:titleCentered="true"
-            app:titleTextColor="@android:color/white" />
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <!-- Scrollable Form Content -->
+    <!-- SCROLL CONTAINER -->
     <ScrollView
+        android:id="@+id/scrollContainer"
+        android:layout_below="@id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:padding="20dp">
+        android:layout_marginTop="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingTop="40dp">
+            android:gravity="center_horizontal">
 
-            <!-- Form Card -->
-            <com.google.android.material.card.MaterialCardView
+            <!-- FORM CARD -->
+            <LinearLayout
+                android:id="@+id/formCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                android:backgroundTint="@android:color/white">
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:background="@drawable/rounded_card">
 
-                <LinearLayout
+                <!-- Email Spinner -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student Email"
+                    android:textColor="@color/text_light"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:spinnerMode="dropdown"
+                    android:padding="12dp"
+                    android:layout_marginBottom="14dp"
+                    android:popupBackground="@android:color/black"/>
+
+                <!-- First Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="First Name"
+                    android:textColor="@color/text_light"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <EditText
+                    android:id="@+id/etFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:padding="12dp"
+                    android:hint="First Name"
+                    android:focusable="false"
+                    android:textColor="@color/text_light"
+                    android:textColorHint="@color/white"
+                    android:layout_marginBottom="14dp"/>
+
+                <!-- Last Name -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Name"
+                    android:textColor="@color/text_light"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <EditText
+                    android:id="@+id/etLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:padding="12dp"
+                    android:hint="Last Name"
+                    android:focusable="false"
+                    android:textColor="@color/text_light"
+                    android:textColorHint="@color/white"
+                    android:layout_marginBottom="14dp"/>
+
+                <!-- Courses Spinner -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Course"
+                    android:textColor="@color/text_light"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerCourses"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:spinnerMode="dropdown"
+                    android:padding="12dp"
+                    android:layout_marginBottom="14dp"
+                    android:popupBackground="@android:color/black"/>
+
+                <!-- Schedule Spinner -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Schedule"
+                    android:textColor="@color/text_light"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerSchedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:spinnerMode="dropdown"
+                    android:padding="12dp"
+                    android:layout_marginBottom="20dp"
+                    android:popupBackground="@android:color/black"/>
+
+                <!-- Submit Button -->
+                <Button
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Submit Attendance"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/btn_green"
+                    android:backgroundTint="@null"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- Attendance Display -->
+                <TextView
+                    android:id="@+id/tvAttendanceData"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="24dp">
+                    android:textColor="@color/text_light"
+                    android:textSize="14sp"
+                    android:background="@drawable/rounded_card"
+                    android:padding="16dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="20dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fallback Attendance"
-                        android:textColor="@color/black"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="24dp" />
+                <!-- Progress Bar -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="gone"
+                    android:layout_marginTop="16dp"/>
 
-                    <!-- Email Spinner -->
-                    <Spinner
-                        android:id="@+id/spinnerEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="16dp"
-                        android:spinnerMode="dropdown"
-                        android:padding="12dp"
-                        android:background="@drawable/rounded_border"
-                        android:popupBackground="@android:color/white"/>
+            </LinearLayout>
 
-                    <!-- First Name -->
-                    <EditText
-                        android:id="@+id/etFirstName"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:hint="First Name"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:longClickable="false"
-                        android:layout_marginBottom="12dp"
-                        android:padding="12dp"
-                        android:background="@drawable/rounded_border"/>
-
-                    <!-- Last Name -->
-                    <EditText
-                        android:id="@+id/etLastName"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:hint="Last Name"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:longClickable="false"
-                        android:layout_marginBottom="12dp"
-                        android:padding="12dp"
-                        android:background="@drawable/rounded_border"/>
-
-                    <!-- Courses Spinner -->
-                    <Spinner
-                        android:id="@+id/spinnerCourses"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="16dp"
-                        android:spinnerMode="dropdown"
-                        android:padding="12dp"
-                        android:background="@drawable/rounded_border"
-                        android:popupBackground="@android:color/white"/>
-
-                    <!-- Schedule Spinner -->
-                    <Spinner
-                        android:id="@+id/spinnerSchedule"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="24dp"
-                        android:spinnerMode="dropdown"
-                        android:padding="12dp"
-                        android:background="@drawable/rounded_border"
-                        android:popupBackground="@android:color/white"/>
-
-                    <!-- Submit Button -->
-                    <Button
-                        android:id="@+id/btnSubmit"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:text="Submit Attendance"
-                        android:textAllCaps="false"
-                        android:backgroundTint="@color/teal_700"
-                        android:textColor="@android:color/white"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="12dp"
-                        android:padding="12dp"
-                        android:background="@drawable/rounded_button"/>
-
-                    <!-- Attendance Display -->
-                    <TextView
-                        android:id="@+id/tvAttendanceData"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:gravity="start"
-                        android:padding="12dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/rounded_border"
-                        android:elevation="4dp"/>
-
-                    <!-- Progress Bar -->
-                    <ProgressBar
-                        android:id="@+id/progressBar"
-                        style="?android:attr/progressBarStyleLarge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:visibility="gone"
-                        android:layout_marginTop="20dp" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </ScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>

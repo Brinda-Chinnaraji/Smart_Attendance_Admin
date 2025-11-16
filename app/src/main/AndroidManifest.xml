@@ -3,14 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-    <!-- For Android 12 and above -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- For Android 12 and above -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-
-    <!-- Optional but recommended -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" /> <!-- Optional but recommended -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -23,19 +19,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartAttendanceAdmin">
-
-        <activity android:name=".AdminActivity" android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" android:parentActivityName=".MainActivity" />
-
-        <activity android:name=".AddCourseActivity" android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" android:parentActivityName=".AdminActivity" />
-        <activity android:name=".AddProfessorActivity" android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" android:parentActivityName=".AdminActivity" />
-
-        <activity android:name=".AddStudentActivity" android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" android:parentActivityName=".AdminActivity" />
-
-        <activity android:name=".AddSemesterActivity" android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" android:parentActivityName=".AdminActivity" />
-        <activity android:name=".AdminLoginActivity" android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" android:parentActivityName=".MainActivity" />
-
-
-
+        <activity
+            android:name=".ProfessorAttendanceHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
+        <activity
+            android:name=".AddCourseActivity"
+            android:parentActivityName=".AdminActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
+        <activity
+            android:name=".AddProfessorActivity"
+            android:parentActivityName=".AdminActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
+        <activity
+            android:name=".AddStudentActivity"
+            android:parentActivityName=".AdminActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
+        <activity
+            android:name=".AddSemesterActivity"
+            android:parentActivityName=".AdminActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
+        <activity
+            android:name=".AdminLoginActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -47,8 +57,6 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".FallbackActivity" />
-
-
     </application>
 
 </manifest>

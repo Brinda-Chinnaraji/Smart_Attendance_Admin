@@ -2,9 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="20dp"
-    android:background="#F9F9F9"
+    android:background="@drawable/bg"
     android:fillViewport="true">
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="20dp"
+                android:background="@color/card_dark"
                 android:gravity="center_horizontal">
 
                 <TextView
@@ -35,7 +37,7 @@
                     android:text="Admin Controls"
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:layout_marginBottom="16dp" />
 
                 <!-- Row 1 -->
@@ -56,7 +58,7 @@
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         app:cornerRadius="12dp"
-                        app:backgroundTint="@color/teal_700" />
+                        app:backgroundTint="@color/card_dark" />
 
                     <Space
                         android:layout_width="12dp"
@@ -72,7 +74,7 @@
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         app:cornerRadius="12dp"
-                        app:backgroundTint="@color/teal_700" />
+                        app:backgroundTint="@color/card_dark" />
                 </LinearLayout>
 
                 <!-- Row 2 -->
@@ -92,7 +94,7 @@
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         app:cornerRadius="12dp"
-                        app:backgroundTint="@color/teal_700" />
+                        app:backgroundTint="@color/card_dark" />
 
                     <Space
                         android:layout_width="12dp"
@@ -108,7 +110,7 @@
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         app:cornerRadius="12dp"
-                        app:backgroundTint="@color/teal_700" />
+                        app:backgroundTint="@color/card_dark" />
                 </LinearLayout>
 
             </LinearLayout>

@@ -6,7 +6,7 @@
     android:id="@+id/adminLoginFrame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9F9"
+    android:background="@drawable/bg"
     tools:context=".AdminLoginActivity">
 
     <!-- Main content -->
@@ -48,13 +48,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="24dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="8dp"
-                    android:backgroundTint="@android:color/white">
+                    app:cardElevation="8dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="@color/card_dark"
                         android:padding="24dp">
 
                         <!-- Title -->
@@ -104,7 +104,7 @@
                             android:layout_height="wrap_content"
                             android:text="Login"
                             android:textAllCaps="false"
-                            android:backgroundTint="@color/teal_700"
+                            android:backgroundTint="@color/card_dark"
                             android:textColor="@android:color/white"
                             android:layout_marginTop="24dp"
                             android:padding="12dp" />

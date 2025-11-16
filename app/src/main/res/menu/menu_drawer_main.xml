@@ -4,7 +4,8 @@
     <!-- 🔹 Add this item FIRST -->
     <item
         android:id="@+id/navigation_admin"
-        android:title="Admin Login" />
+        android:title="Admin Login"
+        />
 
 
 

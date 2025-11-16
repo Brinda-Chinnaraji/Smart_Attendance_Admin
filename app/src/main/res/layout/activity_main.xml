@@ -12,12 +12,14 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F9F9F9">
+        android:background="@drawable/bg">
 
         <!-- AppBar -->
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/card_dark"
+            android:layout_marginTop="20dp"
             android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar">
 
             <com.google.android.material.appbar.MaterialToolbar
@@ -27,7 +29,7 @@
                 android:backgroundTint="@color/teal_700"
                 app:title="Smart Attendance System"
                 app:titleCentered="true"
-                app:titleTextColor="@android:color/black"
+                app:titleTextColor="@android:color/white"
                 app:navigationIconTint="@android:color/black" />
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -52,13 +54,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp"
-                    android:backgroundTint="@android:color/white">
+                    app:cardElevation="6dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="@color/card_dark"
                         android:padding="20dp">
 
                         <TextView
@@ -68,7 +70,7 @@
                             android:text="Welcome, Professor"
                             android:textSize="22sp"
                             android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                         <View
                             android:layout_width="match_parent"
@@ -83,7 +85,7 @@
                             android:text="Select your course:"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:layout_marginBottom="8dp" />
 
                         <Spinner
@@ -91,7 +93,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:spinnerMode="dropdown"
-                            android:backgroundTint="@color/teal_700"
+                            android:backgroundTint="@color/white"
+                            android:popupBackground="@color/black"
                             android:padding="4dp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -102,13 +105,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp"
-                    android:backgroundTint="@android:color/white">
+                    app:cardElevation="6dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="@color/card_dark"
                         android:padding="20dp">
 
                         <TextView
@@ -118,7 +121,7 @@
                             android:text="Semester: "
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/tvSchedule"
@@ -127,7 +130,7 @@
                             android:text="Schedule: "
                             android:textSize="16sp"
                             android:layout_marginTop="8dp"
-                            android:textColor="@android:color/darker_gray" />
+                            android:textColor="@android:color/white" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -138,7 +141,7 @@
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="6dp"
-                    android:backgroundTint="@android:color/white">
+                    android:backgroundTint="@color/card_dark">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -146,6 +149,7 @@
                         android:orientation="vertical"
                         android:gravity="center"
                         android:padding="20dp"
+                        android:background="@color/card_dark"
                         android:animateLayoutChanges="true">
 
                         <TextView
@@ -154,7 +158,7 @@
                             android:text="Attendance Controls"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:layout_marginBottom="12dp" />
 
                         <com.airbnb.lottie.LottieAnimationView
@@ -173,7 +177,7 @@
                             android:layout_height="wrap_content"
                             android:text="Start Attendance"
                             android:textAllCaps="false"
-                            android:backgroundTint="@color/teal_700"
+                            android:background="@drawable/btn_green"
                             android:textColor="@android:color/white"
                             android:layout_marginBottom="12dp" />
 
@@ -207,12 +211,13 @@
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="6dp"
-                    android:backgroundTint="@android:color/white">
+                    android:background="@color/card_dark" >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:background="@color/card_dark"
                         android:padding="20dp">
 
                         <Button
@@ -221,10 +226,19 @@
                             android:layout_height="wrap_content"
                             android:text="Manual Fallback"
                             android:textAllCaps="false"
-                            android:backgroundTint="@color/teal_700"
+                            android:background="@drawable/btn_green"
                             android:textColor="@android:color/white"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/btnAttendanceHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Attendance History"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_green"
+                    android:textColor="@android:color/white"/>
 
             </LinearLayout>
         </ScrollView>

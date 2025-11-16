@@ -3,6 +3,8 @@
     <style name="Base.Theme.SmartAttendanceAdmin" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/card_dark</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Theme.SmartAttendanceAdmin" parent="Base.Theme.SmartAttendanceAdmin" />
