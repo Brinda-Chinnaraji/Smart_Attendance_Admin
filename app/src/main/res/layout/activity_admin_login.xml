@@ -1,128 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/adminLoginFrame"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".AdminLoginActivity">
+    android:padding="16dp">
 
-    <!-- Main content -->
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="24dp">
 
-        <!-- App Bar -->
-        <com.google.android.material.appbar.AppBarLayout
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admin Login"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Login Card -->
+        <LinearLayout
+            android:id="@+id/loginCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="@drawable/btn_green"
+            android:clipToOutline="true"
+            android:layout_marginBottom="20dp">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
+            <!-- Email -->
+            <EditText
+                android:id="@+id/etAdminEmail"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:backgroundTint="@color/teal_700"
-                app:titleCentered="true"
-                app:titleTextColor="@android:color/white" />
-        </com.google.android.material.appbar.AppBarLayout>
+                android:layout_height="50dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:layout_marginBottom="16dp"/>
 
-        <!-- Scrollable Login Form -->
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:padding="20dp">
-
-            <LinearLayout
+            <!-- Password -->
+            <EditText
+                android:id="@+id/etAdminPassword"
                 android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/btnAdminloginButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:background="@drawable/btn_white_rounded"/>
+
+            <!-- Progress Bar -->
+            <ProgressBar
+                android:id="@+id/adminProgressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                android:paddingTop="60dp">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@color/card_dark"
-                        android:padding="24dp">
-
-                        <!-- Title -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Admin Login"
-                            android:textColor="@color/black"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="24dp" />
-
-                        <!-- Username Input -->
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Email">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etAdminEmail"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="textEmailAddress"
-                                android:textColor="@color/black" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <!-- Password Input -->
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Password"
-                            android:layout_marginTop="16dp">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etAdminPassword"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="textPassword"
-                                android:textColor="@color/black" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <!-- Login Button -->
-                        <Button
-                            android:id="@+id/btnAdminloginButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Login"
-                            android:textAllCaps="false"
-                            android:backgroundTint="@color/card_dark"
-                            android:textColor="@android:color/white"
-                            android:layout_marginTop="24dp"
-                            android:padding="12dp" />
-
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-        </ScrollView>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    <!-- ProgressBar overlay (spinner) -->
-    <ProgressBar
-        android:id="@+id/adminProgressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
-
-</FrameLayout>
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

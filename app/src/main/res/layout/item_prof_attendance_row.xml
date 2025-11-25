@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="16dp"
+    android:background="@drawable/btn_green_gradient"
+    android:clipToOutline="true"
+    android:layout_marginBottom="16dp"
+    android:gravity="center_vertical">
 
     <TextView
         android:id="@+id/tvStudent"
@@ -12,7 +16,9 @@
         android:layout_weight="2"
         android:text="student@example.com"
         android:textColor="@android:color/white"
-        android:textSize="14sp"/>
+        android:textSize="16sp"
+        android:ellipsize="end"
+        android:singleLine="true"/>
 
     <TextView
         android:id="@+id/tvStatus"
@@ -21,6 +27,6 @@
         android:layout_weight="1"
         android:text="Present"
         android:textColor="@android:color/white"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:gravity="end"/>
 </LinearLayout>

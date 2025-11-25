@@ -44,65 +44,63 @@ public class LoginActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = emailField.getText().toString().trim();
-                String password = passwordField.getText().toString().trim();
+        loginButton.setOnClickListener(v -> {
+            String email = emailField.getText().toString().trim();
+            String password = passwordField.getText().toString().trim();
 
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                loginProfessor(email, password);
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            loginProfessor(email, password);
         });
     }
 
     private void loginProfessor(String email, String password) {
         Log.d(TAG, "Attempting login for: " + email);
 
-        // 🔍 Query Firestore for a professor with matching email
-        Query query = db.collection("Professor").whereEqualTo("email", email);
-        query.get()
+        db.collection("Professor")
+                .whereEqualTo("email", email)
+                .limit(1) // safer & faster
+                .get()
                 .addOnSuccessListener(querySnapshot -> {
+
                     if (querySnapshot.isEmpty()) {
                         Toast.makeText(this, "No professor found with this email", Toast.LENGTH_SHORT).show();
                         Log.w(TAG, "No professor found with email: " + email);
                         return;
                     }
 
-                    // Expecting only one matching document
                     DocumentSnapshot doc = querySnapshot.getDocuments().get(0);
-                    String storedPassword = doc.getString("password");
 
+                    String storedPassword = doc.getString("password");
                     if (storedPassword == null) {
-                        Toast.makeText(this, "Password field missing in Firestore", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Password missing in database", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
-                    if (storedPassword.equals(password)) {
-                        String professorName = doc.getString("Name");
-                        String professorId = doc.getId();
-
-                        Log.d(TAG, "✅ Login success for: " + professorName + " (ID: " + professorId + ")");
-                        Toast.makeText(this, "Welcome " + professorName, Toast.LENGTH_SHORT).show();
-
-                        // Proceed to MainActivity
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("PROFESSOR_ID", professorId);
-                        intent.putExtra("EMAIL", email);
-                        startActivity(intent);
-                        finish();
-                    } else {
+                    if (!storedPassword.equals(password)) {
                         Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show();
-                        Log.w(TAG, "❌ Invalid password for " + email);
+                        Log.w(TAG, "❌ Wrong password for " + email);
+                        return;
                     }
+
+                    String professorName = doc.getString("Name");
+                    String professorId = doc.getId();
+
+                    Toast.makeText(this, "Welcome " + professorName, Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "Login Success → " + professorName);
+
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("PROFESSOR_ID", professorId);
+                    intent.putExtra("EMAIL", email);
+                    startActivity(intent);
+                    finish();
                 })
                 .addOnFailureListener(e -> {
-                    Log.e(TAG, "Firestore error: " + e.getMessage(), e);
-                    Toast.makeText(this, "Login failed. Try again.", Toast.LENGTH_SHORT).show();
+                    Log.e(TAG, "Firestore Error: " + e.getMessage(), e);
+                    Toast.makeText(this, "Login failed. Try again later.", Toast.LENGTH_SHORT).show();
                 });
     }
 }

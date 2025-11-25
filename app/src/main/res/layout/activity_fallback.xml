@@ -1,179 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    android:padding="24dp"
-    tools:context=".FallbackActivity">
+    android:padding="16dp">
 
-    <!-- TITLE -->
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fallback Attendance"
-        android:textColor="@android:color/white"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
-
-    <!-- SCROLL CONTAINER -->
-    <ScrollView
-        android:id="@+id/scrollContainer"
-        android:layout_below="@id/tvTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="24dp">
 
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fallback Attendance"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Form Card -->
         <LinearLayout
+            android:id="@+id/formCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:padding="20dp"
+            android:background="@drawable/btn_green"
+            android:clipToOutline="true"
+            android:layout_marginBottom="20dp">
 
-            <!-- FORM CARD -->
-            <LinearLayout
-                android:id="@+id/formCard"
+            <!-- Student Email Spinner -->
+            <Spinner
+                android:id="@+id/spinnerEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:popupBackground="@android:color/black"/>
+
+            <!-- First Name -->
+            <EditText
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="First Name"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:focusable="false"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Last Name -->
+            <EditText
+                android:id="@+id/etLastName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Last Name"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:focusable="false"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Course Spinner -->
+            <Spinner
+                android:id="@+id/spinnerCourses"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:popupBackground="@android:color/black"/>
+
+            <!-- Schedule Spinner -->
+            <Spinner
+                android:id="@+id/spinnerSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"
+                android:popupBackground="@android:color/black"/>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Submit Attendance"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:background="@drawable/btn_white_rounded"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Attendance Display -->
+            <TextView
+                android:id="@+id/tvAttendanceData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp"
-                android:background="@drawable/rounded_card">
+                android:textColor="@android:color/white"
+                android:background="@drawable/btn_green"
+                android:padding="16dp"
+                android:textSize="14sp"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp"/>
 
-                <!-- Email Spinner -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Student Email"
-                    android:textColor="@color/text_light"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="6dp"/>
-
-                <Spinner
-                    android:id="@+id/spinnerEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:spinnerMode="dropdown"
-                    android:padding="12dp"
-                    android:layout_marginBottom="14dp"
-                    android:popupBackground="@android:color/black"/>
-
-                <!-- First Name -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="First Name"
-                    android:textColor="@color/text_light"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="6dp"/>
-
-                <EditText
-                    android:id="@+id/etFirstName"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:padding="12dp"
-                    android:hint="First Name"
-                    android:focusable="false"
-                    android:textColor="@color/text_light"
-                    android:textColorHint="@color/white"
-                    android:layout_marginBottom="14dp"/>
-
-                <!-- Last Name -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Last Name"
-                    android:textColor="@color/text_light"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="6dp"/>
-
-                <EditText
-                    android:id="@+id/etLastName"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:padding="12dp"
-                    android:hint="Last Name"
-                    android:focusable="false"
-                    android:textColor="@color/text_light"
-                    android:textColorHint="@color/white"
-                    android:layout_marginBottom="14dp"/>
-
-                <!-- Courses Spinner -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Course"
-                    android:textColor="@color/text_light"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="6dp"/>
-
-                <Spinner
-                    android:id="@+id/spinnerCourses"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:spinnerMode="dropdown"
-                    android:padding="12dp"
-                    android:layout_marginBottom="14dp"
-                    android:popupBackground="@android:color/black"/>
-
-                <!-- Schedule Spinner -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Schedule"
-                    android:textColor="@color/text_light"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="6dp"/>
-
-                <Spinner
-                    android:id="@+id/spinnerSchedule"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:spinnerMode="dropdown"
-                    android:padding="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:popupBackground="@android:color/black"/>
-
-                <!-- Submit Button -->
-                <Button
-                    android:id="@+id/btnSubmit"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Submit Attendance"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/btn_green"
-                    android:backgroundTint="@null"
-                    android:layout_marginBottom="20dp"/>
-
-                <!-- Attendance Display -->
-                <TextView
-                    android:id="@+id/tvAttendanceData"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/text_light"
-                    android:textSize="14sp"
-                    android:background="@drawable/rounded_card"
-                    android:padding="16dp"
-                    android:visibility="gone"
-                    android:layout_marginBottom="20dp"/>
-
-                <!-- Progress Bar -->
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    style="?android:attr/progressBarStyleLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:visibility="gone"
-                    android:layout_marginTop="16dp"/>
-
-            </LinearLayout>
-
+            <!-- Progress Bar -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"/>
         </LinearLayout>
-    </ScrollView>
 
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>

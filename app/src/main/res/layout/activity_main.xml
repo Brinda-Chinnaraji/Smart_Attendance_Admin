@@ -2,38 +2,35 @@
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <!-- Main screen content -->
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_height="match_parent">
 
+    <!-- MAIN SCREEN -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg">
 
-        <!-- AppBar -->
+        <!-- APPBAR -->
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/card_dark"
-            android:layout_marginTop="20dp"
-            android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar">
+            android:layout_marginTop="20dp">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:backgroundTint="@color/teal_700"
+                android:background="@color/card_dark"
                 app:title="Smart Attendance System"
                 app:titleCentered="true"
-                app:titleTextColor="@android:color/white"
-                app:navigationIconTint="@android:color/black" />
+                app:titleTextColor="@color/cardBg"
+                app:navigationIconTint="@color/cardBg"/>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Scrollable content (your existing layout) -->
+        <!-- SCROLL CONTENT -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -48,208 +45,181 @@
                 android:gravity="center_horizontal"
                 android:paddingTop="12dp">
 
-                <!-- Professor Info Card -->
-                <com.google.android.material.card.MaterialCardView
+                <!-- WELCOME CARD -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:background="@drawable/btn_green"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp">
+                    android:clipToOutline="true">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tvWelcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Welcome, Professor"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#40FFFFFF"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"/>
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@color/card_dark"
-                        android:padding="20dp">
+                        android:text="Select your course:"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:layout_marginBottom="8dp"/>
 
-                        <TextView
-                            android:id="@+id/tvWelcome"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Welcome, Professor"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white" />
+                    <Spinner
+                        android:id="@+id/spinnerCourses"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/btn_green"
+                        android:padding="12dp"
+                        android:spinnerMode="dropdown"/>
+                </LinearLayout>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#DDDDDD"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginBottom="12dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Select your course:"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:layout_marginBottom="8dp" />
-
-                        <Spinner
-                            android:id="@+id/spinnerCourses"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:spinnerMode="dropdown"
-                            android:backgroundTint="@color/white"
-                            android:popupBackground="@color/black"
-                            android:padding="4dp" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Semester / Schedule Card -->
-                <com.google.android.material.card.MaterialCardView
+                <!-- SEMESTER CARD -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:background="@drawable/btn_green"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp">
+                    android:clipToOutline="true">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tvSemester"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@color/card_dark"
-                        android:padding="20dp">
+                        android:text="Semester:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
 
-                        <TextView
-                            android:id="@+id/tvSemester"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Semester: "
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white" />
+                    <TextView
+                        android:id="@+id/tvSchedule"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Schedule:"
+                        android:textSize="16sp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/tvSchedule"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Schedule: "
-                            android:textSize="16sp"
-                            android:layout_marginTop="8dp"
-                            android:textColor="@android:color/white" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Attendance Control Card -->
-                <com.google.android.material.card.MaterialCardView
+                <!-- ATTENDANCE CONTROLS CARD -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp"
+                    android:background="@drawable/btn_green"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp"
-                    android:backgroundTint="@color/card_dark">
+                    android:clipToOutline="true">
 
-                    <LinearLayout
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Attendance Controls"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:layout_marginBottom="12dp"/>
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animationBluetooth"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_marginBottom="16dp"
+                        android:visibility="gone"
+                        app:lottie_rawRes="@raw/bluetooth_anim"
+                        app:lottie_autoPlay="false"
+                        app:lottie_loop="true"/>
+
+                    <Button
+                        android:id="@+id/btnStartAttendance"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:text="Start Attendance"
+                        android:textAllCaps="false"
+                        android:background="@drawable/btn_white_rounded"
+                        android:textColor="@android:color/black"
+                        android:layout_marginBottom="12dp"/>
+
+                    <Button
+                        android:id="@+id/btnStopAttendance"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:text="Stop Attendance"
+                        android:textAllCaps="false"
+                        android:background="@drawable/btn_white_rounded"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/tvDebugInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="20dp"
-                        android:background="@color/card_dark"
-                        android:animateLayoutChanges="true">
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:layout_marginTop="12dp"
+                        android:textStyle="italic"
+                        android:text="Debug info will appear here"
+                        android:gravity="center_horizontal"
+                        android:visibility="gone"/>
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Attendance Controls"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:layout_marginBottom="12dp" />
-
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/animationBluetooth"
-                            android:layout_width="180dp"
-                            android:layout_height="180dp"
-                            android:layout_marginBottom="16dp"
-                            android:visibility="gone"
-                            app:lottie_rawRes="@raw/bluetooth_anim"
-                            app:lottie_autoPlay="false"
-                            app:lottie_loop="true" />
-
-                        <Button
-                            android:id="@+id/btnStartAttendance"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Start Attendance"
-                            android:textAllCaps="false"
-                            android:background="@drawable/btn_green"
-                            android:textColor="@android:color/white"
-                            android:layout_marginBottom="12dp" />
-
-                        <Button
-                            android:id="@+id/btnStopAttendance"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Stop Attendance"
-                            android:textAllCaps="false"
-                            android:backgroundTint="@color/holo_red_dark"
-                            android:textColor="@android:color/white" />
-
-                        <TextView
-                            android:id="@+id/tvDebugInfo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@android:color/darker_gray"
-                            android:textSize="14sp"
-                            android:layout_marginTop="12dp"
-                            android:textStyle="italic"
-                            android:text="Debug info will appear here"
-                            android:gravity="center_horizontal"
-                            android:visibility="gone" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Admin Card -->
-                <com.google.android.material.card.MaterialCardView
+                <!-- ADMIN CARD -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/btn_green"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp"
-                    android:background="@color/card_dark" >
+                    android:clipToOutline="true">
 
-                    <LinearLayout
+                    <Button
+                        android:id="@+id/btnManualfallback"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@color/card_dark"
-                        android:padding="20dp">
+                        android:layout_height="48dp"
+                        android:text="Manual Fallback"
+                        android:textAllCaps="false"
+                        android:background="@drawable/btn_white_rounded"
+                        android:textColor="@android:color/black"/>
+                </LinearLayout>
 
-                        <Button
-                            android:id="@+id/btnManualfallback"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Manual Fallback"
-                            android:textAllCaps="false"
-                            android:background="@drawable/btn_green"
-                            android:textColor="@android:color/white"/>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
+                <!-- HISTORY BUTTON -->
                 <Button
                     android:id="@+id/btnAttendanceHistory"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:text="Attendance History"
                     android:textAllCaps="false"
-                    android:background="@drawable/btn_green"
-                    android:textColor="@android:color/white"/>
-
+                    android:background="@drawable/btn_white_rounded"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="20dp"/>
             </LinearLayout>
         </ScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <!-- Navigation Drawer -->
+    <!-- DRAWER -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/menu_drawer_main" />
-
+        app:menu="@menu/menu_drawer_main"
+        android:background="@color/card_dark"/>
 </androidx.drawerlayout.widget.DrawerLayout>

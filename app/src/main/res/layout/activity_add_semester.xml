@@ -1,66 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg" android:padding="16dp">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:padding="20dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="12dp">
 
-        <!-- Header -->
+        <!-- PAGE TITLE -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Semester"
             android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textColor="@android:color/white"
             android:layout_gravity="center"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="24dp" />
 
-        <!-- Card -->
+        <!-- SEMESTER CARD -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@color/card_dark"
-            android:elevation="2dp"
-            android:layout_marginBottom="16dp">
+            android:padding="24dp"
+            android:background="@drawable/btn_green"
+            android:layout_marginBottom="20dp"
+            android:clipToOutline="true">
 
             <EditText
                 android:id="@+id/etSemesterName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:hint="Name (e.g., Fall 2025)"
-                android:background="@drawable/input_background"
-                android:padding="10dp"/>
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:layout_marginBottom="12dp"/>
 
-            <EditText
+            <!-- Start Date Picker -->
+            <TextView
                 android:id="@+id/etStartDate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Start date (YYYY-MM-DD)"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/input_background"
-                android:padding="10dp"/>
+                android:layout_height="50dp"
+                android:hint="Start Date"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical"
+                android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+                android:layout_marginBottom="12dp"/>
 
-            <EditText
+            <!-- End Date Picker -->
+            <TextView
                 android:id="@+id/etEndDate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="End date (YYYY-MM-DD)"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/input_background"
-                android:padding="10dp"/>
+                android:layout_height="50dp"
+                android:hint="End Date"
+                android:background="@drawable/btn_green"
+                android:padding="12dp"
+                android:textColor="@android:color/white"
+                android:gravity="center_vertical"
+                android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+                android:layout_marginBottom="12dp"/>
         </LinearLayout>
 
-        <!-- Save -->
+        <!-- SAVE BUTTON -->
         <Button
             android:id="@+id/btnSaveSemester"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Save Semester"
-            android:backgroundTint="@color/card_dark"
-            android:textColor="@android:color/white"/>
+            android:background="@drawable/btn_white_rounded"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>

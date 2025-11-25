@@ -1,10 +1,13 @@
 package com.codecatalyst.smartattendance.smartattendanceadmin;
 
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,12 +21,20 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class AddCourseActivity extends AppCompatActivity {
-    private EditText etCourseName, etShortCode, etDay, etStartTime, etEndTime;
+
+    // MODIFIED: Replaced etDay with spinnerDay
+    // private EditText etCourseName, etShortCode;
+    private EditText etCourseName, etShortCode;
+
+    private TextView etStartTime, etEndTime;
+    private Spinner spinnerDay;
     private Button btnPickProfessor, btnQuickNewProfessor, btnPickSemester, btnPickStudents, btnSaveCourse;
     private TextView tvPickedProfessor, tvPickedSemester, tvPickedStudents;
 
@@ -43,11 +54,10 @@ public class AddCourseActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("Add Course");
         }
 
-
-
         etCourseName = findViewById(R.id.etCourseName);
         etShortCode = findViewById(R.id.etShortCode);
-        etDay = findViewById(R.id.etDay);
+        // MODIFIED: Initialize Spinner instead of EditText
+        spinnerDay = findViewById(R.id.spinnerDay);
         etStartTime = findViewById(R.id.etStartTime);
         etEndTime = findViewById(R.id.etEndTime);
 
@@ -61,12 +71,46 @@ public class AddCourseActivity extends AppCompatActivity {
         tvPickedSemester = findViewById(R.id.tvPickedSemester);
         tvPickedStudents = findViewById(R.id.tvPickedStudents);
 
+        // ADDED: Populate the day spinner
+        String[] days = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, days);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDay.setAdapter(adapter);
+
         btnPickProfessor.setOnClickListener(v -> pickProfessor());
         btnQuickNewProfessor.setOnClickListener(v -> quickCreateProfessor());
         btnPickSemester.setOnClickListener(v -> pickSemester());
         btnPickStudents.setOnClickListener(v -> pickStudents());
         btnSaveCourse.setOnClickListener(v -> saveCourse());
+
+        etStartTime.setOnClickListener(v -> showTimePicker(etStartTime));
+        etEndTime.setOnClickListener(v -> showTimePicker(etEndTime));
     }
+
+    private void showTimePicker(TextView timeView) {
+        Calendar c = Calendar.getInstance();
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, (view, hourOfDay, minuteOfHour) -> {
+            String amPm;
+            int hourIn12Format;
+
+            if (hourOfDay >= 12) {
+                amPm = "PM";
+                hourIn12Format = (hourOfDay == 12) ? 12 : hourOfDay - 12;
+            } else {
+                amPm = "AM";
+                hourIn12Format = (hourOfDay == 0) ? 12 : hourOfDay;
+            }
+
+            String time = String.format(Locale.getDefault(), "%02d:%02d %s", hourIn12Format, minuteOfHour, amPm);
+            timeView.setText(time);
+        }, hour, minute, false);
+
+        timePickerDialog.show();
+    }
+
 
     private void pickProfessor() {
         db.collection("Professor").get().addOnSuccessListener(qs -> {
@@ -76,7 +120,7 @@ public class AddCourseActivity extends AppCompatActivity {
                 names.add(d.getString("Name"));
                 ids.add(d.getId());
             }
-            String[] items = names.toArray(new String[0]); // correct
+            String[] items = names.toArray(new String[0]);
             new AlertDialog.Builder(this)
                     .setTitle("Select Professor")
                     .setItems(items, (dialog, which) -> {
@@ -145,7 +189,7 @@ public class AddCourseActivity extends AppCompatActivity {
                 names.add(d.getString("Name"));
                 ids.add(d.getId());
             }
-            String[] items = names.toArray(new String[0]); // correct
+            String[] items = names.toArray(new String[0]);
             new AlertDialog.Builder(this)
                     .setTitle("Select Semester")
                     .setItems(items, (dialog, which) -> {
@@ -168,7 +212,7 @@ public class AddCourseActivity extends AppCompatActivity {
                 ids.add(d.getId());
             }
             boolean[] checked = new boolean[ids.size()];
-            String[] items = labels.toArray(new String[0]); // correct
+            String[] items = labels.toArray(new String[0]);
 
             new AlertDialog.Builder(this)
                     .setTitle("Select Students")
@@ -187,7 +231,8 @@ public class AddCourseActivity extends AppCompatActivity {
     private void saveCourse() {
         String courseName = etCourseName.getText().toString().trim();
         String shortCode = etShortCode.getText().toString().trim();
-        String day = etDay.getText().toString().trim();
+        // MODIFIED: Get selected day from Spinner
+        String day = spinnerDay.getSelectedItem().toString();
         String startTime = etStartTime.getText().toString().trim();
         String endTime = etEndTime.getText().toString().trim();
 
@@ -199,6 +244,7 @@ public class AddCourseActivity extends AppCompatActivity {
             Toast.makeText(this, "Pick or create a Professor.", Toast.LENGTH_SHORT).show();
             return;
         }
+        // MODIFIED: Check for a valid day selection
         if (TextUtils.isEmpty(day) || TextUtils.isEmpty(startTime) || TextUtils.isEmpty(endTime) || selectedSemesterId == null) {
             Toast.makeText(this, "Fill schedule fields and pick semester.", Toast.LENGTH_SHORT).show();
             return;
@@ -206,7 +252,6 @@ public class AddCourseActivity extends AppCompatActivity {
 
         WriteBatch batch = db.batch();
 
-        // 1) Course
         DocumentReference courseRef = db.collection("Courses").document();
         Map<String, Object> course = new HashMap<>();
         course.put("CourseName", courseName);
@@ -214,11 +259,9 @@ public class AddCourseActivity extends AppCompatActivity {
         course.put("ProfessorID", selectedProfessorId);
         batch.set(courseRef, course);
 
-        // 2) Update professor back-reference
         DocumentReference profRef = db.collection("Professor").document(selectedProfessorId);
         batch.update(profRef, "coursesTaught", FieldValue.arrayUnion(courseRef.getId()));
 
-        // 3) Initial schedule
         DocumentReference schedRef = courseRef.collection("Schedule").document();
         Map<String, Object> schedule = new HashMap<>();
         schedule.put("Day", day);
@@ -228,9 +271,8 @@ public class AddCourseActivity extends AppCompatActivity {
         schedule.put("StudentsEnrolled", new ArrayList<>(selectedStudentIds));
         batch.set(schedRef, schedule);
 
-        // Commit
         batch.commit().addOnSuccessListener(unused -> {
-            String newCourseId = courseRef.getId(); // this is the ONLY id for this new course
+            String newCourseId = courseRef.getId();
             Toast.makeText(this, "Course saved: " + newCourseId, Toast.LENGTH_LONG).show();
             getIntent().putExtra("NEW_COURSE_ID", newCourseId);
             getIntent().putExtra("PROFESSOR_ID", selectedProfessorId);
