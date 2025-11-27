@@ -86,6 +86,8 @@
                         android:layout_height="50dp"
                         android:background="@drawable/btn_green"
                         android:padding="12dp"
+                        android:backgroundTint="@null"
+                        android:popupBackground="@drawable/spinner_dark_green"
                         android:spinnerMode="dropdown"/>
                 </LinearLayout>
 
