@@ -154,7 +154,7 @@
                         android:layout_height="48dp"
                         android:text="Start Attendance"
                         android:textAllCaps="false"
-                        android:background="@drawable/btn_white_rounded"
+                        android:background="@drawable/btn_green"
                         android:textColor="@android:color/black"
                         android:layout_marginBottom="12dp"/>
 
@@ -164,7 +164,7 @@
                         android:layout_height="48dp"
                         android:text="Stop Attendance"
                         android:textAllCaps="false"
-                        android:background="@drawable/btn_white_rounded"
+                        android:background="@drawable/btn_green"
                         android:textColor="@android:color/black"/>
 
                     <TextView
@@ -196,7 +196,7 @@
                         android:layout_height="48dp"
                         android:text="Manual Fallback"
                         android:textAllCaps="false"
-                        android:background="@drawable/btn_white_rounded"
+                        android:background="@drawable/btn_green"
                         android:textColor="@android:color/black"/>
                 </LinearLayout>
 
@@ -207,7 +207,7 @@
                     android:layout_height="48dp"
                     android:text="Attendance History"
                     android:textAllCaps="false"
-                    android:background="@drawable/btn_white_rounded"
+                    android:background="@drawable/btn_green"
                     android:textColor="@android:color/black"
                     android:layout_marginBottom="20dp"/>
             </LinearLayout>

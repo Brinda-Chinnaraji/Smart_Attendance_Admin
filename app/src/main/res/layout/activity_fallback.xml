@@ -44,7 +44,8 @@
                 android:background="@drawable/btn_green"
                 android:padding="12dp"
                 android:layout_marginBottom="12dp"
-                android:popupBackground="@android:color/black"/>
+                android:backgroundTint="@null"
+                android:popupBackground="@drawable/spinner_dark_green"/>
 
             <!-- First Name -->
             <EditText
@@ -81,7 +82,8 @@
                 android:background="@drawable/btn_green"
                 android:padding="12dp"
                 android:layout_marginBottom="12dp"
-                android:popupBackground="@android:color/black"/>
+                android:backgroundTint="@null"
+                android:popupBackground="@drawable/spinner_dark_green"/>
 
             <!-- Schedule Spinner -->
             <Spinner
@@ -92,7 +94,8 @@
                 android:background="@drawable/btn_green"
                 android:padding="12dp"
                 android:layout_marginBottom="16dp"
-                android:popupBackground="@android:color/black"/>
+                android:backgroundTint="@null"
+                android:popupBackground="@drawable/spinner_dark_green"/>
 
             <!-- Submit Button -->
             <Button

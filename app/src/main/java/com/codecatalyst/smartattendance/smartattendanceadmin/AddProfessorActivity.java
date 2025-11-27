@@ -1,6 +1,8 @@
     package com.codecatalyst.smartattendance.smartattendanceadmin;
     import android.os.Bundle;
+    import android.text.SpannableString;
     import android.text.TextUtils;
+    import android.text.style.AbsoluteSizeSpan;
     import android.view.LayoutInflater;
     import android.view.View;
     import android.widget.Button;
@@ -36,6 +38,10 @@
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_add_professor);
+            EditText et = findViewById(R.id.etProfessorCode);
+            SpannableString hint = new SpannableString("Professor Code (e.g., PROF-JS001)");
+            hint.setSpan(new AbsoluteSizeSpan(12, true), 0, hint.length(), 0); // 12sp
+            et.setHint(hint);
 
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);

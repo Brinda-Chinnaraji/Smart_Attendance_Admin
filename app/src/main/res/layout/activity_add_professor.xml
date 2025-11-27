@@ -26,106 +26,102 @@
         <!-- PROFESSOR CARD -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp"
-            android:background="@drawable/btn_green"
+            android:layout_height="520dp"
             android:layout_marginBottom="20dp"
-            android:clipToOutline="true">
+            android:background="@drawable/btn_green"
+            android:clipToOutline="true"
+            android:orientation="vertical"
+            android:padding="24dp">
 
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Name"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/btn_green"
+                android:hint="Name"
                 android:padding="12dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:layout_marginBottom="12dp"/>
+                android:textColorHint="@android:color/white" />
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/btn_green"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/btn_green"
                 android:padding="12dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:layout_marginBottom="12dp"/>
+                android:textColorHint="@android:color/white" />
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/btn_green"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:background="@drawable/btn_green"
                 android:padding="12dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:layout_marginBottom="12dp"/>
+                android:textColorHint="@android:color/white" />
 
             <EditText
                 android:id="@+id/etDepartment"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Department"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/btn_green"
+                android:hint="Department"
                 android:padding="12dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:layout_marginBottom="12dp"/>
+                android:textColorHint="@android:color/white" />
 
             <EditText
                 android:id="@+id/etProfessorCode"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Professor Code (e.g., PROF-JS001)"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/btn_green"
+                android:hint="Professor Code (e.g., PROF-JS001)"
                 android:padding="12dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:layout_marginBottom="16dp"/>
+                android:textSize="16sp"
+                android:textColorHint="@android:color/white" />
 
             <!-- BUTTONS: Assign / New Course -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
-
                 <Button
                     android:id="@+id/btnPickExistingCourses"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_weight="2"
-                    android:text="Assign Existing"
                     android:background="@drawable/btn_white_rounded"
+                    android:text="Assign Existing"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"/>
 
-                <Space
-                    android:layout_width="12dp"
-                    android:layout_height="1dp" />
-
+            <View
+                android:layout_width="20dp"
+            android:layout_height="17dp"/>
                 <Button
                     android:id="@+id/btnQuickNewCourse"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_weight="2"
-                    android:text="New Course + Link"
                     android:background="@drawable/btn_white_rounded"
-                    android:textColor="@android:color/black"/>
-            </LinearLayout>
+                    android:text="New Course"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/black" />
+
 
             <TextView
                 android:id="@+id/tvPickedCourses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Selected: none"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
         <!-- SAVE BUTTON -->
@@ -136,6 +132,7 @@
             android:text="Save Professor"
             android:background="@drawable/btn_white_rounded"
             android:textColor="@android:color/black"
+            android:textAllCaps="false"
             android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>

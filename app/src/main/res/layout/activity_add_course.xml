@@ -114,6 +114,8 @@
                 android:background="@drawable/btn_green"
                 android:padding="12dp"
                 android:spinnerMode="dropdown"
+                android:backgroundTint="@null"
+                android:popupBackground="@drawable/spinner_dark_green"
                 android:layout_marginBottom="12dp"/>
 
             <!-- Time Row -->
@@ -163,6 +165,7 @@
                     android:layout_height="48dp"
                     android:layout_weight="1"
                     android:text="Pick Semester"
+                    android:textAllCaps="false"
                     android:background="@drawable/btn_white_rounded"
                     android:textColor="@android:color/black"/>
 
@@ -177,6 +180,7 @@
                     android:layout_weight="1"
                     android:text="Pick Students"
                     android:background="@drawable/btn_white_rounded"
+                    android:textAllCaps="false"
                     android:textColor="@android:color/black"/>
             </LinearLayout>
 
@@ -204,6 +208,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Save Course"
+            android:textAllCaps="false"
             android:background="@drawable/btn_white_rounded"
             android:textColor="@android:color/black"/>
     </LinearLayout>

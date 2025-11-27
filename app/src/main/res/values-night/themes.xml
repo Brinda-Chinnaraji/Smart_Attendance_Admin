@@ -6,4 +6,7 @@
         <item name="colorPrimary">@color/cardview_light_background</item>
         <item name="android:textColor">@color/white</item>
     </style>
+    <style name="HintSmall">
+        <item name="android:textSize">12sp</item>   <!-- hint size only -->
+    </style>
 </resources>

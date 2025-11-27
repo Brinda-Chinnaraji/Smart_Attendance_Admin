@@ -8,4 +8,7 @@
     </style>
 
     <style name="Theme.SmartAttendanceAdmin" parent="Base.Theme.SmartAttendanceAdmin" />
+    <style name="HintSmall">
+        <item name="android:textSize">12sp</item>   <!-- hint size only -->
+    </style>
 </resources>

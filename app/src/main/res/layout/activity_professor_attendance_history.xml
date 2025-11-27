@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Select Semester"
-                    android:textColor="@color/cardBg"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="8dp" />
@@ -79,7 +79,8 @@
                     android:padding="12dp"
                     android:spinnerMode="dropdown"
                     android:background="@drawable/btn_green"
-                    android:popupBackground="@android:color/black" />
+                    android:backgroundTint="@null"
+                    android:popupBackground="@drawable/spinner_dark_green"/>
             </LinearLayout>
 
             <!-- COURSE CARD -->
