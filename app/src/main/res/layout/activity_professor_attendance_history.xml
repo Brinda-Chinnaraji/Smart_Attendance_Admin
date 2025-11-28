@@ -90,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/rounded_card"
+                android:popupBackground="@drawable/spinner_dark_green"
                 android:padding="20dp"
                 android:layout_marginBottom="16dp"
                 android:visibility="gone">
@@ -110,7 +111,7 @@
                     android:padding="12dp"
                     android:spinnerMode="dropdown"
                     android:background="@drawable/btn_green"
-                    android:popupBackground="@android:color/black" />
+                    android:popupBackground="@drawable/spinner_dark_green" />
             </LinearLayout>
 
             <!-- SCHEDULE CARD -->
@@ -140,7 +141,7 @@
                     android:padding="12dp"
                     android:spinnerMode="dropdown"
                     android:background="@drawable/btn_green"
-                    android:popupBackground="@android:color/black" />
+                    android:popupBackground="@drawable/spinner_dark_green" />
             </LinearLayout>
 
             <!-- DATE CARD -->
@@ -170,7 +171,7 @@
                     android:padding="12dp"
                     android:spinnerMode="dropdown"
                     android:background="@drawable/btn_green"
-                    android:popupBackground="@android:color/black" />
+                    android:popupBackground="@drawable/spinner_dark_green" />
             </LinearLayout>
 
             <!-- SESSION CARD -->
@@ -200,7 +201,7 @@
                     android:padding="12dp"
                     android:spinnerMode="dropdown"
                     android:background="@drawable/btn_green"
-                    android:popupBackground="@android:color/black" />
+                    android:popupBackground="@drawable/spinner_dark_green" />
             </LinearLayout>
 
             <!-- HISTORY TABLE CARD -->
